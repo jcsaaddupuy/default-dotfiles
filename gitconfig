@@ -1,0 +1,7 @@
+[user]
+	email = jc.saaddupuy@fsfe.org
+	name = jc
+[push]
+	default = simple
+[core]
+	excludesfile = /home/jc/.gitignore
