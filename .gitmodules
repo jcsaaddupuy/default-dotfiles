@@ -1,0 +1,6 @@
+[submodule "awesome-copycats"]
+	path = awesome-copycats
+	url = https://github.com/copycat-killer/awesome-copycats.git
+[submodule "prezto"]
+	path = prezto
+	url = https://github.com/sorin-ionescu/prezto.git
