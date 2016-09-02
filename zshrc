@@ -9,6 +9,7 @@
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+unsetopt share_history
 
 # Customize to your needs...
 zstyle ':completion:*' use-cache on
@@ -41,7 +42,9 @@ export VISUAL=vim
 #export PATH=$PATH:~/go/bin
 
 export PATH=/opt/android-sdk/platform-tools:$PATH
-source $(pew shell_config)
+
+#source $(pew shell_config)
+alias pew-activate='source $(pew shell_config)'
 
 # python startup script
 [ -f ~/.pythonstartup.py ] && export PYTHONSTARTUP=~/.pythonstartup.py
