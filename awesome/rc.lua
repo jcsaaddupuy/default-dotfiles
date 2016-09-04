@@ -143,7 +143,7 @@ mytextclock = lain.widgets.abase({
 })
 
 -- Calendar
-lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
+lain.widgets.calendar:attach(mytextclock, { font_size = 22 })
 
 -- / fs
 fsicon = wibox.widget.imagebox(beautiful.widget_fs)
@@ -296,7 +296,7 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the upper wibox
-    mywibox[s] = awful.wibox({ position = "top", screen = s, height = 20 })
+    mywibox[s] = awful.wibox({ position = "top", screen = s, height = 30 })
     --border_width = 0, height =  20 })
 
     -- Widgets that are aligned to the upper left
@@ -335,7 +335,7 @@ for s = 1, screen.count() do
     mywibox[s]:set_widget(layout)
 
     -- Create the bottom wibox
-    mybottomwibox[s] = awful.wibox({ position = "bottom", screen = s, border_width = 0, height = 20 })
+    mybottomwibox[s] = awful.wibox({ position = "bottom", screen = s, border_width = 0, height = 30 })
     --mybottomwibox[s].visible = false
 
     -- Widgets that are aligned to the bottom left
