@@ -2,7 +2,10 @@ XTerm*utf8: 1
 
 ! font and font size
 XTerm*faceName: Bitstream Vera Serif Mono
-XTerm*faceSize: 10
+!XTerm*faceName: Terminus
+XTerm*faceSize: 12
+
+
 
 ! default background
 XTerm*background:         black
@@ -21,18 +24,24 @@ XTerm*fullscreen: never
 XTerm*ScrollBar: false
 XTerm*ScrollKey: true
 
-! use system clipboard
-XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
 
 ! triple click
 XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 XTerm*on3Clicks: regex [[:alpha:]]+://([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
 ! open slected link with Shift-click
-*VT100*translations: #override Shift <Btn1Up>: exec-formatted("firefox '%t'", PRIMARY)
+! *VT100*translations: #override
 
 XTerm*visualbell: true
 XTerm*bellIsUrgent: true
 
 XTerm*printerCommand: xterm -T History -e zsh -c 'less -r <&3' 3<&0
-XTerm*translations: #override Ctrl <Key>slash: print-everything()
+!XTerm*translations: #override Ctrl <Key>slash: print-everything()
 
+! use system clipboard
+XTerm*VT100.translations: #override \
+    <Btn1Up>: 			select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n\
+    Shift Ctrl <Key>C: 	select-end(CLIPBOARD, CUT_BUFFER0) \n\
+    Shift Ctrl <Key>V: 	insert-selection(CLIPBOARD, CUT_BUFFER0) \n\
+	Shift <Key>Up: 		scroll-back(1) \n\
+	Shift <Key>Down: 	scroll-forw(1) \n\
+	Shift <Btn1Up>: 	exec-formatted("$BROWSER '%t'", PRIMARY)
