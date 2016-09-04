@@ -714,7 +714,7 @@ wp_random.start({timeout = 10 * 60, directory = wp_path, exts={".png", ".jpg", "
 --
 --
 
-awful.util.spawn("setxkbmap fr")
+-- awful.util.spawn("setxkbmap fr")
 run_once("nm-applet")
 run_once("xcompmgr")
 run_once("redshift-gtk")
