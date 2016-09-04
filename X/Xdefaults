@@ -1,3 +1,6 @@
+! for retina
+Xft.dpi: 160.0
+
 XTerm*utf8: 1
 
 ! font and font size
