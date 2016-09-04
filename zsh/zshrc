@@ -34,6 +34,8 @@ alias fuck="sudo \`history -1 | awk '{ \$1=\"\"; print \$0 }'\`"
 export EDITOR=vim
 export VISUAL=vim
 
+export BROWSER=firefox
+
 # Lua stuffs
 #eval $(luarocks path --bin)
 
