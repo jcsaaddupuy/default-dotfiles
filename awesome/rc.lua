@@ -97,7 +97,7 @@ end
 -- {{{ Tags
 tags = {
    names = {    "web",      "term",     "docs",     "media",    "files",    "other",    "torrents" },
-   layout = {   layouts[1], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2], layouts[10] }
+   layout = {   layouts[2], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2], layouts[10] }
 }
 for s = 1, screen.count() do
 -- Each screen has its own tag table.
@@ -129,7 +129,6 @@ markup      = lain.util.markup
 
 -- Textclock
 clockicon = wibox.widget.imagebox(beautiful.widget_clock)
---mytextclock = awful.widget.textclock(markup("#7788af", "%A %d %B ") .. markup("#343639", ">") .. markup("#de5e1e", " %H:%M "))
 mytextclock = lain.widgets.abase({
     timeout  = 60,
     cmd      = "date +'%A %d %B %R'",
@@ -176,11 +175,14 @@ tempwidget = lain.widgets.temp({
 baticon = wibox.widget.imagebox(beautiful.widget_batt)
 batwidget = lain.widgets.bat({
     settings = function()
-        perc = bat_now.perc .. "% "
+        perc = bat_now.perc .. "%"
+        time = bat_now.time
+        watt = bat_now.watt
+        text = perc .. " (".. time .." " .. watt .."W)"
         if bat_now.ac_status == 1 then
-            perc = perc .. "Plug "
+            text= text .. "Plug "
         end
-        widget:set_text(perc)
+        widget:set_text(text)
     end
 })
 
