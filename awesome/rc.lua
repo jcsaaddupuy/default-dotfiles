@@ -193,8 +193,12 @@ volumewidget = lain.widgets.alsa({
         if volume_now.status == "off" then
             volume_now.level = volume_now.level .. "M"
         end
+        local level = volume_now.level
+        if level == nil then
+            level = "N/A"
+        end
 
-        widget:set_markup(markup("#7493d2", volume_now.level .. "% "))
+        widget:set_markup(markup("#7493d2", level .. "% "))
     end
 })
 
