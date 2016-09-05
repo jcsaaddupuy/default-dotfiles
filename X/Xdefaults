@@ -2,7 +2,6 @@ XTerm*utf8: 1
 
 ! font and font size
 XTerm*faceName: Bitstream Vera Serif Mono
-!XTerm*faceName: Terminus
 XTerm*faceSize: 12
 
 
