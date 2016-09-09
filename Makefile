@@ -13,7 +13,7 @@ tmux: ~/.tmux.conf
 vim: ~/.vim/ ~/.vimrc
 python: ~/.pythonstartup.py
 
-awesome: ~/.config/awesome/ ~/.config/awesome/rc.lua ~/.config/awesome/wp_random.lua
+awesome: ~/.config/awesome/ ~/.config/awesome/rc.lua ~/.config/awesome/wp_random.lua ~/.config/awesome/curtain
 
 
 ### ZSH ##
@@ -63,6 +63,8 @@ awesome: ~/.config/awesome/ ~/.config/awesome/rc.lua ~/.config/awesome/wp_random
 	ln -s $(CUR_DIR)/awesome/rc.lua ~/.config/awesome/rc.lua
 ~/.config/awesome/wp_random.lua:
 	ln -s $(CUR_DIR)/awesome/wp_random.lua ~/.config/awesome/wp_random.lua
+~/.config/awesome/curtain:
+	ln -s $(CUR_DIR)/awesome/curtain ~/.config/awesome/curtain
 
 ##### VIM #####
 ~/.vim/:
