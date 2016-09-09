@@ -19,6 +19,8 @@ local wibox     = require("wibox")
 local beautiful = require("beautiful")
 local naughty   = require("naughty")
 local lain      = require("lain")
+
+local curtain      = require("curtain")
 -- }}}
 
 -- {{{ Error handling
@@ -145,21 +147,22 @@ mytextclock = lain.widgets.abase({
 -- Calendar
 lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 
--- / fs
-fsicon = wibox.widget.imagebox(beautiful.widget_fs)
-fswidget = lain.widgets.fs({
-    settings  = function()
-        widget:set_markup(markup("#80d9d8", fs_now.used .. "% "))
-    end
-})
-
-
 -- CPU
 cpuicon = wibox.widget.imagebox()
 cpuicon:set_image(beautiful.widget_cpu)
 cpuwidget = lain.widgets.cpu({
     settings = function()
         widget:set_markup(markup("#e33a6e", cpu_now.usage .. "% "))
+    end
+})
+-- Fan speed
+fanicon = wibox.widget.imagebox(beautiful.widget_fs)
+fanwidget = curtain.widgets.fan({
+    fan1_file = "/sys/devices/platform/applesmc.768/fan1_output",
+    fan2_file = "/sys/devices/platform/applesmc.768/fan2_output",
+
+    settings = function()
+        widget:set_markup(markup("#90D4BC", data.fan1_speed .. " RPM - ".. data.fan2_speed.. " RPM"))
     end
 })
 
@@ -321,10 +324,10 @@ for s = 1, screen.count() do
     right_layout:add(memwidget)
     right_layout:add(cpuicon)
     right_layout:add(cpuwidget)
-    right_layout:add(fsicon)
-    right_layout:add(fswidget)
     right_layout:add(tempicon)
     right_layout:add(tempwidget)
+    right_layout:add(fanicon)
+    right_layout:add(fanwidget)
     right_layout:add(baticon)
     right_layout:add(batwidget)
     right_layout:add(clockicon)
