@@ -2,7 +2,7 @@ CUR_DIR:=$(shell pwd)
 
 .PHONY: zsh git tmux
 
-all: zsh git awesome tmux vim ~/.editorconfig ~/.Xdefaults
+all: zsh git awesome tmux vim mplayer ~/.editorconfig ~/.Xdefaults
 
 zsh: ~/.zprezto ~/.zshrc ~/.zpreztorc
 
@@ -14,6 +14,8 @@ vim: ~/.vim/ ~/.vimrc
 python: ~/.pythonstartup.py
 
 awesome: ~/.config/awesome/ ~/.config/awesome/rc.lua ~/.config/awesome/wp_random.lua ~/.config/awesome/curtain
+
+mplayer: ~/.mplayer/config
 
 
 ### ZSH ##
@@ -83,3 +85,6 @@ awesome: ~/.config/awesome/ ~/.config/awesome/rc.lua ~/.config/awesome/wp_random
 ~/pythonstartup.py:
 	ln -s $(CUR_DIR)/python/pythonstartup.py ~/.pythonstartup.py
 
+~/.mplayer/config:
+	mkdir -p ~/.mplayer/
+	ln -s $(CUR_DIR)/mplayer/mplayer.conf ~/.mplayer/config
