@@ -10,6 +10,14 @@ trim_trailing_whitespace = true
 end_of_line = lf
 charset = utf-8
 
+# Javascript / Ember / front stuffs
+[*.js]
+indent_size = 2
+[*.hps]
+indent_size = 4
+[*.scss]
+indent_size = 4
+
 # Use 2 spaces for the HTML files
 [*.html]
 indent_size = 2
