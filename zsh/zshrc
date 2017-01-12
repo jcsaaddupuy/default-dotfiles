@@ -40,8 +40,8 @@ export BROWSER=firefox
 #eval $(luarocks path --bin)
 
 # Go stuffs
-#export GOPATH=~/go
-#export PATH=$PATH:~/go/bin
+export GOPATH=~/go
+export PATH=$PATH:~/go/bin
 
 export PATH=/opt/android-sdk/platform-tools:$PATH
 
@@ -60,4 +60,18 @@ alias pew-activate='source $(pew shell_config)'
 
 # uses less with colors and pygmentize
 export LESS='-R'
-[ -f ~/.lessfilter ] && export LESSOPEN='|~/.lessfilter %s'
+export LESSOPEN='|pygmentize %s'
+# [ -f ~/.lessfilter ] && export LESSOPEN='|~/.lessfilter %s'
+#
+export PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
+
+# ctrlp shotcut
+ctrlp() {
+  </dev/tty vim -c CtrlP
+}
+zle -N ctrlp
+
+bindkey "^p" ctrlp
+
+
+export COLUMN_LIMIT=160
